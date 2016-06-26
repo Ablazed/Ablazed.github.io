@@ -2,7 +2,13 @@ var Loop = (function() {
   return function(array, callback) {
     if (typeof callback === 'function') {
       for (var a = 0; a < array.length; a++) {
-        callback(a, array[a]);
+        try {
+          callback(a, array[a]); } catch (error) {
+        try {
+          callback(a); } catch (error) {
+        try {
+          callback(); } catch (error) { }}
+        }
       }
     } else {
       throw('Usage: Iterate(array, function(index, value) { ... });');
@@ -11,13 +17,20 @@ var Loop = (function() {
 })();
 
 var Iterate = (function() {
-  return function(array, callback) {
+  return function(obj, callback) {
     if (typeof callback === 'function') {
-      for (var a = 0; a < array.length; a++) {
-        callback(a, array[a]);
+      for (prop in obj) {
+        if (obj.hasOwnProperty(prop) && isNaN(prop)) {
+          try {
+            callback(obj[prop]); } catch (error) {
+          try {
+            callback(); } catch (error) { }
+          }
+          Iterate(obj[prop], callback);
+        }
       }
     } else {
-      throw('Usage: Iterate(dictionary, function(index, value) { ... });');
+      throw('Usage: Iterate(dictionary, function(value) { ... });');
     }
   };
 })();
