@@ -108,7 +108,6 @@ alert(index);
 })({});
 
 var Ablazed = (function() {
-  var Each = function
   function Iterate(obj, query, code) {
 alert(code);
     for (prop in obj) {
