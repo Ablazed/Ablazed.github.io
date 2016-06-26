@@ -1,5 +1,4 @@
-var Loop = (function() {
-  return function(array, callback) {
+var Loop = function(array, callback) {
     if (typeof callback === 'function') {
       for (var a = 0; a < array.length; a++) {
         try {
@@ -14,7 +13,6 @@ var Loop = (function() {
       throw('Usage: Loop(array, function(index, value) { ... });');
     }
   };
-})();
 
 var Iteratea = (function() {
   return function(obj, callback) {
