@@ -11,7 +11,8 @@ var Loop = (function() {
         }
       }
     } else {
-      throw('Usage: Iterate(array, function(index, value) { ... });');
+alert('hi');
+      throw('Usage: Loop(array, function(index, value) { ... });');
     }
   };
 })();
