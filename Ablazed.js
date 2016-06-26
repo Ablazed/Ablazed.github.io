@@ -39,7 +39,7 @@ var AblazedExt = (function(exports) {
     }
   };
   exports.Lang = function() {
-    var query = document.querySelectorAll('pre[data-lang]:not([data-lang="none"]), pre[data-language]:not([data-language="none"])'),
+    var query = document.querySelectorAll('pre[data-lang], pre[data-language]'),
       check = [];
     for (var a = 0; a < query.length; a++) {
       var canvas = query[a],
@@ -54,6 +54,24 @@ var AblazedExt = (function(exports) {
   };
   return exports;
 })({});
+
+var Ablazed = (function() {
+  function Query(obj) {
+    var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"]], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
+    Iterate(obj, query);
+  }
+  function Iterate(obj, query) {
+    for (prop in obj) {
+      if (obj.hasOwnProperty(prop) && isNaN(prop)) {
+        alert(prop);
+        Iterate(obj[prop]);
+      }
+    }
+  }
+  return function(obj) {
+    Query(obj);
+  };
+})();
 
 (function() {
   window.onload = function() {
