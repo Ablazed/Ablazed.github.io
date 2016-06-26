@@ -56,13 +56,12 @@ var AblazedExt = (function(exports) {
 })({});
 
 var Ablazed = (function() {
-  function
   function Iterate(obj, query, code) {
 alert(code);
     for (prop in obj) {
       if (obj.hasOwnProperty(prop) && isNaN(prop)) {
         alert(prop);
-        Iterate(obj[prop], query, code);
+        Iterate(obj[prop], query, prop);
       }
     }
   }
