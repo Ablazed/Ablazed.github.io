@@ -45,11 +45,10 @@ var AblazedExt = (function(exports) {
       var canvas = query[a],
         lang = canvas.getAttribute('data-lang') || canvas.getAttribute('data-language'),
         code = canvas.innerHTML;
-alert(lang);
       canvas.innerHTML = code.replace(/\&/gm, '&amp;').replace(/\</gm, '&lt;').replace(/\>/gm, '&gt;');
       if (check.indexOf(lang) < 0) {
         check.push(lang);
-        exports.LoadScript('https://ablazed.github.io/Lang/' + lang.toLowerCase() + '.js', false);
+        exports.LoadScript('https://ablazed.github.io/Lang/' + lang.toLowerCase() + '.js', true);
       }
     }
   };
@@ -64,7 +63,7 @@ var Ablazed = (function() {
   function Iterate(obj, query) {
     for (prop in obj) {
       if (obj.hasOwnProperty(prop) && isNaN(prop)) {
-        alert(prop);
+        //alert(prop);
         Iterate(obj[prop], query);
       }
     }
