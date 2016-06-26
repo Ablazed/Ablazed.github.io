@@ -1,3 +1,27 @@
+var Loop = (function() {
+  return function(array, callback) {
+    if (typeof callback === 'function') {
+      for (var a = 0; a < array.length; a++) {
+        callback(a, array[a]);
+      }
+    } else {
+      throw('Usage: Iterate(array, function(index, value) { ... });');
+    }
+  };
+})();
+
+var Iterate = (function() {
+  return function(array, callback) {
+    if (typeof callback === 'function') {
+      for (var a = 0; a < array.length; a++) {
+        callback(a, array[a]);
+      }
+    } else {
+      throw('Usage: Iterate(dictionary, function(index, value) { ... });');
+    }
+  };
+})();
+
 var AblazedExt = (function(exports) {
   exports.LoadStyle = function(url, async) {
     async = async || true;
@@ -56,6 +80,7 @@ var AblazedExt = (function(exports) {
 })({});
 
 var Ablazed = (function() {
+  var Each = function
   function Iterate(obj, query, code) {
 alert(code);
     for (prop in obj) {
