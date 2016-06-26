@@ -64,7 +64,7 @@ var Ablazed = (function() {
     for (prop in obj) {
       if (obj.hasOwnProperty(prop) && isNaN(prop)) {
         alert(prop);
-        Iterate(obj[prop]);
+        Iterate(obj[prop], query);
       }
     }
   }
