@@ -1,3 +1,4 @@
 Ablazed({
+  lang: 'JavaScript',
   reserved: ''
 });
