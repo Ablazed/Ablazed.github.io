@@ -11,7 +11,6 @@ var Loop = (function() {
         }
       }
     } else {
-alert('hi');
       throw('Usage: Loop(array, function(index, value) { ... });');
     }
   };
@@ -82,6 +81,7 @@ var AblazedExt = (function(exports) {
     var query = document.querySelectorAll('pre[data-lang], pre[data-language]'),
       check = [];
     Loop(query, function(index, canvas) {
+alert(index);
       var lang = canvas.getAttribute('data-lang') || canvas.getAttribute('data-language'),
         code = canvas.innerHTML;
       canvas.innerHTML = code.replace(/\&/gm, '&amp;').replace(/\</gm, '&lt;').replace(/\>/gm, '&gt;');
