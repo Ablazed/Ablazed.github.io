@@ -57,7 +57,7 @@ var AblazedExt = (function(exports) {
 
 var Ablazed = (function() {
   function Query(obj) {
-    var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"]], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
+    var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
     Iterate(obj, query);
   }
   function Iterate(obj, query) {
