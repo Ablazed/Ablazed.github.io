@@ -45,6 +45,7 @@ var AblazedExt = (function(exports) {
       var canvas = query[a],
         lang = canvas.getAttribute('data-lang') || canvas.getAttribute('data-language'),
         code = canvas.innerHTML;
+alert(lang);
       canvas.innerHTML = code.replace(/\&/gm, '&amp;').replace(/\</gm, '&lt;').replace(/\>/gm, '&gt;');
       if (check.indexOf(lang) < 0) {
         check.push(lang);
