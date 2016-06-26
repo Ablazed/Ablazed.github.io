@@ -48,7 +48,7 @@ var AblazedExt = (function(exports) {
       canvas.innerHTML = code.replace(/\&/gm, '&amp;').replace(/\</gm, '&lt;').replace(/\>/gm, '&gt;');
       if (check.indexOf(lang) < 0) {
         check.push(lang);
-        exports.LoadScript('https://ablazed.github.io/Lang/' + lang.toLowerCase() + '.js', true);
+        exports.LoadScript('https://ablazed.github.io/Lang/' + lang.toLowerCase() + '.js', false);
       }
     }
   };
