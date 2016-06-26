@@ -38,6 +38,20 @@ var AblazedExt = (function(exports) {
       exports.LoadStyle('https://ablazed.github.io/Paint/default.css', true);
     }
   };
+  exports.Lang = function() {
+    var query = document.querySelectorAll('pre[data-lang]:not([data-lang="none"]), pre[data-language]:not([data-language="none"])'),
+      check = [];
+    for (var a = 0; a < query.length; a++) {
+      var canvas = query[a],
+        lang = canvas.getAttribute('data-lang') || canvas.getAttribute('data-language'),
+        code = canvas.innerHTML;
+      canvas.innerHTML = code.replace(/\&/gm, '&amp;').replace(/\</gm, '&lt;').replace(/\>/gm, '&gt;');
+      if (check.indexOf(lang) < 0) {
+        check.push(lang);
+        exports.LoadScript('https://ablazed.github.io/Lang/' + lang.toLowerCase() + '.js', true);
+      }
+    }
+  };
   return exports;
 })({});
 
