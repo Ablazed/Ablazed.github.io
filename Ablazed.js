@@ -57,19 +57,19 @@ var AblazedExt = (function(exports) {
 
 var Ablazed = (function() {
   function
-  function Iterate(obj, query, msg) {
-alert(msg);
+  function Iterate(obj, query, code) {
+alert(code);
     for (prop in obj) {
       if (obj.hasOwnProperty(prop) && isNaN(prop)) {
         alert(prop);
-        Iterate(obj[prop], query);
+        Iterate(obj[prop], query, code);
       }
     }
   }
   return function(obj) {
     var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
     for (var a = 0; a < query.length; a++) {
-      Iterate(obj, query, 'hi');
+      Iterate(obj, query, query[a].innerHTML);
     }
   };
 })();
