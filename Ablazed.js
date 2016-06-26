@@ -121,7 +121,7 @@ alert(code);
   return function(obj) {
     var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
     for (var a = 0; a < query.length; a++) {
-      Iterate(obj, query, query[a].innerHTML);
+      //Iterate(obj, query, query[a].innerHTML);
     }
   };
 })();
