@@ -2,7 +2,6 @@ var Loop = (function() {
   return function(array, callback) {
     if (typeof callback === 'function') {
       for (var a = 0; a < array.length; a++) {
-alert(a);
         try {
           callback(a, array[a]); } catch (error) {
         try {
@@ -82,7 +81,6 @@ var AblazedExt = (function(exports) {
     var query = document.querySelectorAll('pre[data-lang], pre[data-language]'),
       check = [];
     Loop(query, function(index, canvas) {
-alert(index);
       var lang = canvas.getAttribute('data-lang') || canvas.getAttribute('data-language'),
         code = canvas.innerHTML;
       canvas.innerHTML = code.replace(/\&/gm, '&amp;').replace(/\</gm, '&lt;').replace(/\>/gm, '&gt;');
@@ -91,37 +89,18 @@ alert(index);
         exports.LoadScript('https://ablazed.github.io/Lang/' + lang.toLowerCase() + '.js', true);
       }
     });
-/*
-    for (var a = 0; a < query.length; a++) {
-      var canvas = query[a],
-        lang = canvas.getAttribute('data-lang') || canvas.getAttribute('data-language'),
-        code = canvas.innerHTML;
-      canvas.innerHTML = code.replace(/\&/gm, '&amp;').replace(/\</gm, '&lt;').replace(/\>/gm, '&gt;');
-      if (check.indexOf(lang) < 0) {
-        check.push(lang);
-        exports.LoadScript('https://ablazed.github.io/Lang/' + lang.toLowerCase() + '.js', true);
-      }
-    }
-*/
   };
   return exports;
 })({});
 
 var Ablazed = (function() {
-  function Iterate(obj, query, code) {
-alert(code);
-    for (prop in obj) {
-      if (obj.hasOwnProperty(prop) && isNaN(prop)) {
-        alert(prop);
-        Iterate(obj[prop], query, prop);
-      }
-    }
-  }
   return function(obj) {
     var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
-    for (var a = 0; a < query.length; a++) {
-      //Iterate(obj, query, query[a].innerHTML);
-    }
+    Loop(query, function(index, canvas) {
+      Iterate(obj, function(key, value) {
+        alert(canvas.innerHTML);
+      });
+    });
   };
 })();
 
