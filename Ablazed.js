@@ -97,9 +97,9 @@ var Ablazed = (function() {
   return function(obj) {
     var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
     Loop(query, function(index, canvas) {
-      Iterate(obj, function(key, value) {
+      //Iterate(obj, function(key, value) {
         alert(canvas.innerHTML);
-      });
+      //});
     });
   };
 })();
