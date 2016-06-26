@@ -56,24 +56,21 @@ var AblazedExt = (function(exports) {
 })({});
 
 var Ablazed = (function() {
-  function Query(obj) {
-    var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
-    Iterate(obj, query);
-  }
-  function Iterate(obj, query) {
+  function
+  function Iterate(obj, query, msg) {
+alert(msg);
     for (prop in obj) {
       if (obj.hasOwnProperty(prop) && isNaN(prop)) {
-        //alert(prop);
+        alert(prop);
         Iterate(obj[prop], query);
       }
     }
   }
   return function(obj) {
-var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
-for (a in query) {
-alert(query);
-}
-    Query(obj);
+    var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
+    for (var a = 0; a < query.length; a++) {
+      Iterate(obj, query, 'hi');
+    }
   };
 })();
 
