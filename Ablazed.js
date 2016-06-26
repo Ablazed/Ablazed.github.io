@@ -80,6 +80,16 @@ var AblazedExt = (function(exports) {
   exports.Lang = function() {
     var query = document.querySelectorAll('pre[data-lang], pre[data-language]'),
       check = [];
+    Loop(query, function(index, canvas) {
+      var lang = canvas.getAttribute('data-lang') || canvas.getAttribute('data-language'),
+        code = canvas.innerHTML;
+      canvas.innerHTML = code.replace(/\&/gm, '&amp;').replace(/\</gm, '&lt;').replace(/\>/gm, '&gt;');
+      if (check.indexOf(lang) < 0) {
+        check.push(lang);
+        exports.LoadScript('https://ablazed.github.io/Lang/' + lang.toLowerCase() + '.js', true);
+      }
+    });
+/*
     for (var a = 0; a < query.length; a++) {
       var canvas = query[a],
         lang = canvas.getAttribute('data-lang') || canvas.getAttribute('data-language'),
@@ -90,6 +100,7 @@ var AblazedExt = (function(exports) {
         exports.LoadScript('https://ablazed.github.io/Lang/' + lang.toLowerCase() + '.js', true);
       }
     }
+*/
   };
   return exports;
 })({});
