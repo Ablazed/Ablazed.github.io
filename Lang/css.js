@@ -1,3 +1,4 @@
 Ablazed({
+  lang: 'CSS',
   reserved: ''
 });
