@@ -16,7 +16,7 @@ var Loop = (function() {
   };
 })();
 
-var Iterate = (function() {
+var Iteratea = (function() {
   return function(obj, callback) {
     if (typeof callback === 'function') {
       for (prop in obj) {
