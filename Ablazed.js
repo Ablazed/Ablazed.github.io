@@ -71,7 +71,7 @@ var Ablazed = (function() {
   return function(obj) {
 var query = document.querySelectorAll('pre[data-lang="' + obj['lang'].toLowerCase() + '"], pre[data-language="' + obj['lang'].toLowerCase() + '"]');
 for (a in query) {
-alert(a);
+alert(query);
 }
     Query(obj);
   };
